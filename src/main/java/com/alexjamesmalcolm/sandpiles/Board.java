@@ -99,4 +99,8 @@ public class Board {
 		return -1;
 	}
 
+	public void topple() {
+		getTile(0, 0).topple();
+	}
+
 }

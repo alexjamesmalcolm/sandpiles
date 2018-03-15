@@ -196,4 +196,12 @@ public class BoardTest {
 		int position = underTest.findYPosition(tileOne);
 		assertThat(position, is(1));
 	}
+	
+	@Test
+	public void shouldToppleBoardSoZeroZeroHasNoSand() {
+		Board underTest = new Board(2, 2);
+		underTest.setTile(0, 0, new Tile(4));
+		underTest.topple();
+		assertThat(underTest.getTile(0, 0).getSand(), is(0));
+	}
 }
