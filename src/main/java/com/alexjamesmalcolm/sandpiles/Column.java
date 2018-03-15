@@ -3,9 +3,22 @@ package com.alexjamesmalcolm.sandpiles;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Column {
 
-	List<Tile> tiles = new ArrayList<>();
+	@Id
+	@GeneratedValue
+	private long id;
+	@ManyToOne
+	Board board;
+	@OneToMany(mappedBy = "column")
+	List<Tile> tiles;
 	private int height;
 
 	public Column(int height) {

@@ -1,6 +1,19 @@
 package com.alexjamesmalcolm.sandpiles;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Tile {
+	
+	@Id
+	@GeneratedValue
+	long id;
+	
+	@ManyToOne
+	Column column;
 
 	private int sand;
 

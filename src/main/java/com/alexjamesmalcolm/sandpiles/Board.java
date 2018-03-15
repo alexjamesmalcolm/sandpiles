@@ -15,7 +15,7 @@ public class Board {
 	private int width;
 	private int height;
 	@OneToMany(mappedBy = "board")
-	private List<Column> board;
+	private List<Column> columns;
 	@Id
 	@GeneratedValue
 	private long id;
@@ -42,24 +42,24 @@ public class Board {
 	}
 
 	public Tile getTile(int x, int y) {
-		Column column = board.get(x);
+		Column column = columns.get(x);
 		Tile tile = column.getTile(y);
 		return tile;
 	}
 
 	public void generate(int sand) {
-		board = new ArrayList<>();
+		columns = new ArrayList<>();
 		for (int x = 0; x < width; x++) {
 			Column column = new Column(height);
 			for (int y = 0; y < height; y++) {
 				column.setTile(y, new Tile(sand));
 			}
-			board.add(x, column);
+			columns.add(x, column);
 		}
 	}
 
 	public void setTile(int x, int y, Tile tile) {
-		Column column = board.get(x);
+		Column column = columns.get(x);
 		column.setTile(y, tile);
 	}
 
