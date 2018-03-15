@@ -27,4 +27,8 @@ public class Tile {
 		sand = getSand() % 4;
 	}
 
+	public void addSand(int sand) {
+		this.sand += sand;
+	}
+
 }

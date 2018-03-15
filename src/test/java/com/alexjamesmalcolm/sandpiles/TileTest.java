@@ -70,4 +70,11 @@ public class TileTest {
 		underTest.topple();
 		assertThat(underTest.getSand(), is(3));
 	}
+	
+	@Test
+	public void shouldAddOneSandToTileWithTwo() {
+		Tile underTest = new Tile(2);
+		underTest.addSand(1);
+		assertThat(underTest.getSand(), is(3));
+	}
 }
