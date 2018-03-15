@@ -14,4 +14,8 @@ public class Column {
 	public void setTile(int position, Tile tile) {
 		this.tile = tile;
 	}
+
+	public int getHeight() {
+		return 1;
+	}
 }
