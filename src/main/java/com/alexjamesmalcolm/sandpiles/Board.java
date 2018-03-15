@@ -65,10 +65,9 @@ public class Board {
 
 	public boolean needsToppling() {
 		for (int x = 0; x < width; x++) {
-			List<Tile> column = board.get(x);
-			for(int y = 0; y < height; y++) {
-				Tile tile = column.get(y);
-				if(tile.isUnstable()) {
+			for (int y = 0; y < height; y++) {
+				Tile tile = getTile(x, y);
+				if (tile.isUnstable()) {
 					return true;
 				}
 			}
@@ -78,10 +77,9 @@ public class Board {
 
 	public int findXPosition(Tile tile) {
 		for (int x = 0; x < width; x++) {
-			List<Tile> column = board.get(x);
-			for(int y = 0; y < height; y++) {
-				Tile check = column.get(y);
-				if(tile.equals(check)) {
+			for (int y = 0; y < height; y++) {
+				Tile check = getTile(x, y);
+				if (tile.equals(check)) {
 					return x;
 				}
 			}
@@ -91,10 +89,9 @@ public class Board {
 
 	public int findYPosition(Tile tile) {
 		for (int x = 0; x < width; x++) {
-			List<Tile> column = board.get(x);
-			for(int y = 0; y < height; y++) {
-				Tile check = column.get(y);
-				if(tile.equals(check)) {
+			for (int y = 0; y < height; y++) {
+				Tile check = getTile(x, y);
+				if (tile.equals(check)) {
 					return y;
 				}
 			}
