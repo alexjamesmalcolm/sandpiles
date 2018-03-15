@@ -20,4 +20,10 @@ public class TileTest {
 		Tile underTest = new Tile(2);
 		assertThat(underTest.getSand(), is(2));
 	}
+	
+	@Test
+	public void shouldBeUnstableWhenSandIsFour() {
+		Tile underTest = new Tile(4);
+		assertThat(underTest.isUnstable(), is(true));
+	}
 }

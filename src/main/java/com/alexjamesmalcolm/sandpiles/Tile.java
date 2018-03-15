@@ -12,4 +12,8 @@ public class Tile {
 		return sand;
 	}
 
+	public boolean isUnstable() {
+		return true;
+	}
+
 }
