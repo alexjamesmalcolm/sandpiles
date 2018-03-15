@@ -3,9 +3,20 @@ package com.alexjamesmalcolm.sandpiles;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 public class BoardTest {
+	
+	@Mock
+	Tile tile;
+	
+	@Before
+	public void setup() {
+		MockitoAnnotations.initMocks(this);
+	}
 
 	@Test
 	public void shouldHaveWidthOfTenTiles() {
@@ -39,5 +50,19 @@ public class BoardTest {
 		Board underTest = new Board(2, 2);
 		underTest.generate(0);
 		assertThat(underTest.getTile(0, 0).getSand(), is(0));
+	}
+	
+//	@Test
+	public void shouldHaveBoardGenerateOneSandTiles() {
+		Board underTest = new Board(2, 2);
+		underTest.generate(1);
+		assertThat(underTest.getTile(0, 0).getSand(), is(1));
+	}
+	
+	@Test
+	public void shouldSetTileAtZeroZero() {
+		Board underTest = new Board(2,2);
+		underTest.setTile(0, 0, tile);
+		assertThat(underTest.getTile(0, 0), is(tile));
 	}
 }

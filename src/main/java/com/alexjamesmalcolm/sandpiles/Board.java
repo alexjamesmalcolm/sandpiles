@@ -4,6 +4,7 @@ public class Board {
 
 	private int width;
 	private int height;
+	private Tile tile;
 
 	public Board(int width, int height) {
 		this.width = width;
@@ -19,10 +20,15 @@ public class Board {
 	}
 
 	public Tile getTile(int i, int j) {
-		return new Tile(0);
+		return tile;
 	}
 
-	public void generate(int i) {
+	public void generate(int sand) {
+		tile = new Tile(0);
+	}
+
+	public void setTile(int x, int y, Tile tile) {
+		this.tile = tile;
 	}
 
 }
