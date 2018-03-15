@@ -102,7 +102,7 @@ public class BoardTest {
 	}
 	
 	@Test
-	public void shouldGetAdjacentTilesToOneOneTile() {
+	public void shouldGetAdjacentTilesToOneOneTileInThreeGrid() {
 		Board underTest = new Board(3,3);
 		underTest.setTile(1, 1, tileOne);
 		underTest.setTile(1, 0, tileTwo);
@@ -111,5 +111,15 @@ public class BoardTest {
 		underTest.setTile(2, 1, tileFive);
 		Collection<Tile> tiles = underTest.getAdjacentTiles(1, 1);
 		assertThat(tiles, containsInAnyOrder(tileTwo, tileThree, tileFour, tileFive));
+	}
+	
+	@Test
+	public void shouldGetAdjacentTilesToOneOneTile() {
+		Board underTest = new Board(2,2);
+		underTest.setTile(1, 1, tileOne);
+		underTest.setTile(0, 1, tileTwo);
+		underTest.setTile(1, 0, tileThree);
+		Collection<Tile> tiles = underTest.getAdjacentTiles(1, 1);
+		assertThat(tiles, containsInAnyOrder(tileTwo, tileThree));
 	}
 }
