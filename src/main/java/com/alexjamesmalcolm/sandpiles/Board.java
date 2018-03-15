@@ -16,6 +16,9 @@ public class Board {
 		generate(0);
 	}
 
+	Board(long id) {
+	}
+
 	public int getWidth() {
 		return width;
 	}
@@ -124,6 +127,10 @@ public class Board {
 		Collection<Tile> tiles = getTiles();
 		tiles.removeIf(tile -> !tile.isUnstable());
 		return tiles;
+	}
+
+	public long getId() {
+		return 1;
 	}
 
 }

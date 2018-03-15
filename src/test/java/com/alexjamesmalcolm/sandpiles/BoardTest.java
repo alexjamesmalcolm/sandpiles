@@ -258,4 +258,11 @@ public class BoardTest {
 		Collection<Tile> tiles = underTest.getUnstableTiles();
 		assertThat(tiles, containsInAnyOrder(tileOne, tileTwo));
 	}
+	
+	@Test
+	public void shouldGetIdOne() {
+		long id = 1;
+		Board underTest = new Board(id);
+		assertThat(underTest.getId(), is(id));
+	}
 }
