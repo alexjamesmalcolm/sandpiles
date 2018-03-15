@@ -14,4 +14,10 @@ public class BoardTest {
 		int actualWidth = underTest.getWidth();
 		assertThat(actualWidth, is(width));
 	}
+	
+	@Test
+	public void shouldHaveWidthOfElevenTiles() {
+		Board underTest = new Board(11);
+		assertThat(underTest.getWidth(), is(11));
+	}
 }
