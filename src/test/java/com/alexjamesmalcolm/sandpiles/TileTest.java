@@ -38,4 +38,10 @@ public class TileTest {
 		Tile underTest = new Tile(4);
 		assertThat(underTest.getNumOfTopples(), is(1));
 	}
+	
+	@Test
+	public void shouldHaveTwoToppleWhenSandIsEight() {
+		Tile underTest = new Tile(8);
+		assertThat(underTest.getNumOfTopples(), is(2));
+	}
 }

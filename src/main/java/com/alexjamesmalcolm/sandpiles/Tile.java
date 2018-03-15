@@ -20,6 +20,9 @@ public class Tile {
 	}
 
 	public int getNumOfTopples() {
+		if(sand > 5) {
+			return 2;
+		}
 		return 1;
 	}
 
