@@ -180,4 +180,12 @@ public class BoardTest {
 		int position = underTest.findXPosition(tileOne);
 		assertThat(position, is(1));
 	}
+	
+	@Test
+	public void shouldGetTilesYPositionAsZero() {
+		Board underTest = new Board(1, 1);
+		underTest.setTile(0, 0, tileOne);
+		int position = underTest.findYPosition(tileOne);
+		assertThat(position, is(0));
+	}
 }

@@ -89,4 +89,8 @@ public class Board {
 		return -1;
 	}
 
+	public int findYPosition(Tile tileOne) {
+		return 0;
+	}
+
 }
