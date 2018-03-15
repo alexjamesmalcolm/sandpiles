@@ -132,4 +132,11 @@ public class BoardTest {
 		Collection<Tile> tiles = underTest.getAdjacentTiles(0, 1);
 		assertThat(tiles, containsInAnyOrder(tileTwo, tileThree));
 	}
+	@Test
+	public void shouldRequireToppling() {
+		Board underTest = new Board(2, 2);
+		underTest.generate(4);
+		boolean isTopplingNeeded = underTest.needsToppling();
+		assertThat(isTopplingNeeded, is(true));
+	}
 }

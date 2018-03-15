@@ -63,4 +63,8 @@ public class Board {
 		return tiles;
 	}
 
+	public boolean needsToppling() {
+		return true;
+	}
+
 }
