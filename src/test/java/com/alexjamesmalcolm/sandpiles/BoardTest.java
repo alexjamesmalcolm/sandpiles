@@ -4,6 +4,7 @@ import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.when;
 
 import java.util.Collection;
 
@@ -11,6 +12,7 @@ import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 public class BoardTest {
@@ -246,5 +248,16 @@ public class BoardTest {
 		underTest.setTile(0, 0, tile);
 		Collection<Tile> tiles = underTest.getUnstableTiles();
 		assertThat(tiles, contains(tile));
+	}
+	
+	@Test
+	public void shouldReturnTwoTilesThatNeedToppling() {
+		Board underTest = new Board(2,2);
+		when(tileOne.isUnstable()).thenReturn(true);
+		underTest.setTile(0, 1, tileOne);
+		when(tileTwo.isUnstable()).thenReturn(true);
+		underTest.setTile(1, 0, tileTwo);
+		Collection<Tile> tiles = underTest.getUnstableTiles();
+		assertThat(tiles, containsInAnyOrder(tileOne, tileTwo));
 	}
 }

@@ -122,9 +122,9 @@ public class Board {
 	}
 
 	public Collection<Tile> getUnstableTiles() {
-		Collection<Tile> result = new ArrayList<>();
-		result.add(getTile(0,0));
-		return result;
+		Collection<Tile> tiles = getTiles();
+		tiles.removeIf(tile -> !tile.isUnstable());
+		return tiles;
 	}
 
 }
