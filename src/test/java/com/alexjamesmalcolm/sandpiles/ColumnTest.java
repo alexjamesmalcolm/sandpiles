@@ -11,7 +11,10 @@ import org.mockito.MockitoAnnotations;
 public class ColumnTest {
 	
 	@Mock
-	Tile tile;
+	Tile tileOne;
+	
+	@Mock
+	Tile tileTwo;
 	
 	@Before
 	public void setup() {
@@ -23,8 +26,8 @@ public class ColumnTest {
 		int height = 1;
 		Column underTest = new Column(height);
 		int position = 0;
-		underTest.setTile(position, tile);
-		assertThat(underTest.getTile(position), is(tile));
+		underTest.setTile(position, tileOne);
+		assertThat(underTest.getTile(position), is(tileOne));
 	}
 	
 	@Test
@@ -39,5 +42,13 @@ public class ColumnTest {
 		int height = 2;
 		Column underTest = new Column(height);
 		assertThat(underTest.getHeight(), is(height));
+	}
+	
+	@Test
+	public void shouldGetFirstTile() {
+		Column underTest = new Column(2);
+		underTest.setTile(0, tileOne);
+		underTest.setTile(1, tileTwo);
+		assertThat(underTest.getTile(0), is(tileOne));
 	}
 }
