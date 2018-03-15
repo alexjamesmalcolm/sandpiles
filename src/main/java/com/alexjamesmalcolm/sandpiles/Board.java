@@ -94,7 +94,15 @@ public class Board {
 
 	public void topple() {
 		Collection<Tile> tiles = getTiles();
-		tiles.forEach(tile -> tile.topple());
+		tiles.forEach(tile -> {
+			if (tile.isUnstable()) {
+				int x = findXPosition(tile);
+				int y = findYPosition(tile);
+				Collection<Tile> adjacentTiles = getAdjacentTiles(x, y);
+				adjacentTiles.forEach(adjacentTile -> adjacentTile.addSand(1));
+				tile.topple();
+			}
+		});
 	}
 
 	private Collection<Tile> getTiles() {
