@@ -27,4 +27,10 @@ public class BoardTest {
 		Board underTest = new Board(1, height);
 		assertThat(underTest.getHeight(), is(height));
 	}
+	
+	@Test
+	public void shouldHaveHeightOfElevenTiles() {
+		Board underTest = new Board(1, 11);
+		assertThat(underTest.getHeight(), is(11));
+	}
 }

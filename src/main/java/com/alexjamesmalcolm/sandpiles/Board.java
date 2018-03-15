@@ -3,9 +3,11 @@ package com.alexjamesmalcolm.sandpiles;
 public class Board {
 
 	private int width;
+	private int height;
 
 	public Board(int width, int height) {
 		this.width = width;
+		this.height = height;
 	}
 
 	public int getWidth() {
@@ -13,7 +15,7 @@ public class Board {
 	}
 
 	public int getHeight() {
-		return 10;
+		return height;
 	}
 
 }
