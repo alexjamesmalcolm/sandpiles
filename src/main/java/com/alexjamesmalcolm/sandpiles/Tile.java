@@ -19,4 +19,8 @@ public class Tile {
 		return true;
 	}
 
+	public int getNumOfTopples() {
+		return 1;
+	}
+
 }

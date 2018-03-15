@@ -32,4 +32,10 @@ public class TileTest {
 		Tile underTest = new Tile(3);
 		assertThat(underTest.isUnstable(), is(false));
 	}
+	
+	@Test
+	public void shouldHaveOneToppleWhenSandIsFour() {
+		Tile underTest = new Tile(4);
+		assertThat(underTest.getNumOfTopples(), is(1));
+	}
 }
