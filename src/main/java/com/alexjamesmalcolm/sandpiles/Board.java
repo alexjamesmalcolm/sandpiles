@@ -24,7 +24,7 @@ public class Board {
 	}
 
 	public void generate(int sand) {
-		tile = new Tile(0);
+		tile = new Tile(sand);
 	}
 
 	public void setTile(int x, int y, Tile tile) {

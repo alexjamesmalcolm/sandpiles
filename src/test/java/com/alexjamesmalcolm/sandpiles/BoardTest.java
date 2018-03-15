@@ -52,7 +52,7 @@ public class BoardTest {
 		assertThat(underTest.getTile(0, 0).getSand(), is(0));
 	}
 	
-//	@Test
+	@Test
 	public void shouldHaveBoardGenerateOneSandTiles() {
 		Board underTest = new Board(2, 2);
 		underTest.generate(1);
