@@ -24,7 +24,7 @@ public class Tile {
 	}
 
 	public void topple() {
-		sand = 0;
+		sand = getSand() % 4;
 	}
 
 }

@@ -63,4 +63,11 @@ public class TileTest {
 		underTest.topple();
 		assertThat(underTest.getSand(), is(0));
 	}
+	
+	@Test
+	public void shouldHaveToppleNotChangeSandWhenSandIsThree() {
+		Tile underTest = new Tile(3);
+		underTest.topple();
+		assertThat(underTest.getSand(), is(3));
+	}
 }
