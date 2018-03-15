@@ -50,4 +50,10 @@ public class TileTest {
 		Tile underTest = new Tile(7);
 		assertThat(underTest.getNumOfTopples(), is(1));
 	}
+	
+	@Test
+	public void shouldHaveThreeToppleWhenSandIsTwelve() {
+		Tile underTest = new Tile(12);
+		assertThat(underTest.getNumOfTopples(), is(3));
+	}
 }
