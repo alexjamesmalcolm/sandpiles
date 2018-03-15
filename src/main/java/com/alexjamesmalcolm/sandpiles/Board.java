@@ -9,6 +9,7 @@ public class Board {
 	private int width;
 	private int height;
 	private List<List<Tile>> board;
+	private long id;
 
 	public Board(int width, int height) {
 		this.width = width;
@@ -17,6 +18,7 @@ public class Board {
 	}
 
 	Board(long id) {
+		this.id = id;
 	}
 
 	public int getWidth() {
@@ -130,7 +132,7 @@ public class Board {
 	}
 
 	public long getId() {
-		return 1;
+		return id;
 	}
 
 }

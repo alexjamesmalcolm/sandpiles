@@ -265,4 +265,11 @@ public class BoardTest {
 		Board underTest = new Board(id);
 		assertThat(underTest.getId(), is(id));
 	}
+	
+	@Test
+	public void shouldGetIdTwo() {
+		long id = 2;
+		Board underTest = new Board(id);
+		assertThat(underTest.getId(), is(id));
+	}
 }
