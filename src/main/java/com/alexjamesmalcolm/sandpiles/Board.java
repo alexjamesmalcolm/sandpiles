@@ -64,15 +64,8 @@ public class Board {
 	}
 
 	public boolean needsToppling() {
-		for (int x = 0; x < width; x++) {
-			for (int y = 0; y < height; y++) {
-				Tile tile = getTile(x, y);
-				if (tile.isUnstable()) {
-					return true;
-				}
-			}
-		}
-		return false;
+		Collection<Tile> tiles = getTiles();
+		return tiles.stream().anyMatch(tile -> tile.isUnstable());
 	}
 
 	public int findXPosition(Tile tile) {
@@ -100,12 +93,19 @@ public class Board {
 	}
 
 	public void topple() {
+		Collection<Tile> tiles = getTiles();
+		tiles.forEach(tile -> tile.topple());
+	}
+
+	private Collection<Tile> getTiles() {
+		Collection<Tile> result = new ArrayList<>();
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
 				Tile tile = getTile(x, y);
-				tile.topple();
+				result.add(tile);
 			}
 		}
+		return result;
 	}
 
 }
