@@ -1,11 +1,13 @@
 package com.alexjamesmalcolm.sandpiles;
 
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 import java.util.Collection;
 
+import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -235,5 +237,14 @@ public class BoardTest {
 		underTest.generate(6);
 		underTest.topple();
 		assertThat(underTest.needsToppling(), is(false));
+	}
+	
+	@Test
+	public void shouldReturnOneTileThatNeedsToppling() {
+		Board underTest = new Board(2,2);
+		Tile tile = new Tile(4);
+		underTest.setTile(0, 0, tile);
+		Collection<Tile> tiles = underTest.getUnstableTiles();
+		assertThat(tiles, contains(tile));
 	}
 }

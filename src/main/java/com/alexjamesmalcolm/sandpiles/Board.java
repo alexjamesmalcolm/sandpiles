@@ -121,4 +121,10 @@ public class Board {
 		return result;
 	}
 
+	public Collection<Tile> getUnstableTiles() {
+		Collection<Tile> result = new ArrayList<>();
+		result.add(getTile(0,0));
+		return result;
+	}
+
 }
