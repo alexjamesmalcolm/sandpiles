@@ -77,7 +77,16 @@ public class Board {
 	}
 
 	public int findXPosition(Tile tile) {
-		return 0;
+		for (int x = 0; x < width; x++) {
+			List<Tile> column = board.get(x);
+			for(int y = 0; y < height; y++) {
+				Tile check = column.get(y);
+				if(tile.equals(check)) {
+					return x;
+				}
+			}
+		}
+		return -1;
 	}
 
 }

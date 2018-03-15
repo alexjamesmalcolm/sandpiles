@@ -172,4 +172,12 @@ public class BoardTest {
 		int position = underTest.findXPosition(tileOne);
 		assertThat(position, is(0));
 	}
+	
+	@Test
+	public void shouldGetTilesXPositionAsOne() {
+		Board underTest = new Board(2, 2);
+		underTest.setTile(1, 0, tileOne);
+		int position = underTest.findXPosition(tileOne);
+		assertThat(position, is(1));
+	}
 }
