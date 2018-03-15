@@ -93,8 +93,7 @@ public class Board {
 	}
 
 	public void topple() {
-		//TODO Re-factor this so that topple only getTiles the tiles that need to be toppled
-		Collection<Tile> tiles = getTiles();
+		Collection<Tile> tiles = getUnstableTiles();
 		tiles.forEach(tile -> {
 			if (tile.isUnstable()) {
 				int x = findXPosition(tile);
