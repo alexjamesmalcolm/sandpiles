@@ -100,7 +100,12 @@ public class Board {
 	}
 
 	public void topple() {
-		getTile(0, 0).topple();
+		for (int x = 0; x < width; x++) {
+			for (int y = 0; y < height; y++) {
+				Tile tile = getTile(x, y);
+				tile.topple();
+			}
+		}
 	}
 
 }

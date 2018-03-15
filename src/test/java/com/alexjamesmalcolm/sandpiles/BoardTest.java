@@ -204,4 +204,12 @@ public class BoardTest {
 		underTest.topple();
 		assertThat(underTest.getTile(0, 0).getSand(), is(0));
 	}
+	
+	@Test
+	public void shouldToppleBoardSoOneOneHasNoSand() {
+		Board underTest = new Board(2, 2);
+		underTest.setTile(1, 1, new Tile(4));
+		underTest.topple();
+		assertThat(underTest.getTile(1, 1).getSand(), is(0));
+	}
 }
