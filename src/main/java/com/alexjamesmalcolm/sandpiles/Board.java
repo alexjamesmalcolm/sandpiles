@@ -56,9 +56,9 @@ public class Board {
 		}
 		if (x > 0) {
 			tiles.add(getTile(x - 1, y));
-			if (y > 0) {
-				tiles.add(getTile(x, y - 1));
-			}
+		}
+		if (y > 0) {
+			tiles.add(getTile(x, y - 1));
 		}
 		return tiles;
 	}
