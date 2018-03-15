@@ -2,6 +2,9 @@
 /build/
 !gradle/wrapper/gradle-wrapper.jar
 
+### Node.js ###
+node_modules
+
 ### Eclipse ###
 bin
 
