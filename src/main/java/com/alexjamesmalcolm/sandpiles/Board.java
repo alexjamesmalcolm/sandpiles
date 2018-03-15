@@ -4,12 +4,24 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Board {
 
 	private int width;
 	private int height;
-	private List<List<Tile>> board;
+	@OneToMany(mappedBy = "board")
+	private List<Column> board;
+	@Id
+	@GeneratedValue
 	private long id;
+	
+	@SuppressWarnings("unused")
+	private Board() {}
 
 	public Board(int width, int height) {
 		this.width = width;
@@ -30,25 +42,25 @@ public class Board {
 	}
 
 	public Tile getTile(int x, int y) {
-		List<Tile> column = board.get(x);
-		Tile tile = column.get(y);
+		Column column = board.get(x);
+		Tile tile = column.getTile(y);
 		return tile;
 	}
 
 	public void generate(int sand) {
 		board = new ArrayList<>();
 		for (int x = 0; x < width; x++) {
-			List<Tile> column = new ArrayList<Tile>();
+			Column column = new Column(height);
 			for (int y = 0; y < height; y++) {
-				column.add(y, new Tile(sand));
+				column.setTile(y, new Tile(sand));
 			}
 			board.add(x, column);
 		}
 	}
 
 	public void setTile(int x, int y, Tile tile) {
-		List<Tile> column = board.get(x);
-		column.set(y, tile);
+		Column column = board.get(x);
+		column.setTile(y, tile);
 	}
 
 	public Collection<Tile> getAdjacentTiles(int x, int y) {
