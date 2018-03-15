@@ -104,9 +104,12 @@ public class Board {
 				tile.topple();
 			}
 		});
+		if(needsToppling()) {
+			topple();
+		}
 	}
 
-	private Collection<Tile> getTiles() {
+	public Collection<Tile> getTiles() {
 		Collection<Tile> result = new ArrayList<>();
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {

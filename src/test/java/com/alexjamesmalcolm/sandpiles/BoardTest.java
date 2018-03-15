@@ -228,4 +228,12 @@ public class BoardTest {
 		underTest.topple();
 		assertThat(underTest.getTile(0, 0).getSand(), is(2));
 	}
+	
+	@Test
+	public void shouldChainToppleTheBoard() {
+		Board underTest = new Board(2, 2);
+		underTest.generate(6);
+		underTest.topple();
+		assertThat(underTest.needsToppling(), is(false));
+	}
 }
