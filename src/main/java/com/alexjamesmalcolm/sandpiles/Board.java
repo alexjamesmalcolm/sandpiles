@@ -49,10 +49,15 @@ public class Board {
 	public Collection<Tile> getAdjacentTiles(int x, int y) {
 		Collection<Tile> tiles = new ArrayList<Tile>();
 		tiles.add(getTile(x, y + 1));
-		tiles.add(getTile(x + 1, y));
+		if (x + 1 < width) {
+			tiles.add(getTile(x + 1, y));
+		}
 		if (x > 0) {
 			tiles.add(getTile(x - 1, y));
-			tiles.add(getTile(x, y - 1));
+			System.out.println(y - 1);
+			if (y > 0) {
+				tiles.add(getTile(x, y - 1));
+			}
 		}
 		return tiles;
 	}

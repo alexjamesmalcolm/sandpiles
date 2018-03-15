@@ -91,11 +91,11 @@ public class BoardTest {
 		assertThat(tiles, containsInAnyOrder(tileTwo, tileThree));
 	}
 
-//	@Test
+	@Test
 	public void shouldGetAdjacentTilesToOneZeroTile() {
 		Board underTest = new Board(2, 2);
 		underTest.setTile(1, 0, tileOne);
-		underTest.setTile(0, 1, tileTwo);
+		underTest.setTile(1, 1, tileTwo);
 		underTest.setTile(0, 0, tileThree);
 		Collection<Tile> tiles = underTest.getAdjacentTiles(1, 0);
 		assertThat(tiles, containsInAnyOrder(tileTwo, tileThree));
