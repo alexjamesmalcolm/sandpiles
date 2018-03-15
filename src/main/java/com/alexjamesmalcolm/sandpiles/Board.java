@@ -89,8 +89,17 @@ public class Board {
 		return -1;
 	}
 
-	public int findYPosition(Tile tileOne) {
-		return 0;
+	public int findYPosition(Tile tile) {
+		for (int x = 0; x < width; x++) {
+			List<Tile> column = board.get(x);
+			for(int y = 0; y < height; y++) {
+				Tile check = column.get(y);
+				if(tile.equals(check)) {
+					return y;
+				}
+			}
+		}
+		return -1;
 	}
 
 }
