@@ -148,4 +148,12 @@ public class BoardTest {
 		boolean actual = underTest.needsToppling();
 		assertThat(actual, is(false));
 	}
+	
+	@Test
+	public void shouldRequireTopplingOnOneOne() {
+		Board underTest = new Board(2,2);
+		underTest.setTile(1, 1, new Tile(4));
+		boolean actual = underTest.needsToppling();
+		assertThat(actual, is(true));
+	}
 }
