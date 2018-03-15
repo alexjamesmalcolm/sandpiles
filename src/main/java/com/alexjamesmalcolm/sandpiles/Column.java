@@ -3,8 +3,10 @@ package com.alexjamesmalcolm.sandpiles;
 public class Column {
 
 	Tile tile;
+	private int height;
 
 	public Column(int height) {
+		this.height = height;
 	}
 
 	public Tile getTile(int position) {
@@ -16,6 +18,6 @@ public class Column {
 	}
 
 	public int getHeight() {
-		return 1;
+		return height;
 	}
 }

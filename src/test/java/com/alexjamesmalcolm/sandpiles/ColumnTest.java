@@ -3,8 +3,6 @@ package com.alexjamesmalcolm.sandpiles;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-import org.hamcrest.Matchers;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -32,6 +30,13 @@ public class ColumnTest {
 	@Test
 	public void shouldGetHeightOne() {
 		int height = 1;
+		Column underTest = new Column(height);
+		assertThat(underTest.getHeight(), is(height));
+	}
+	
+	@Test
+	public void shouldGetHeightTwo() {
+		int height = 2;
 		Column underTest = new Column(height);
 		assertThat(underTest.getHeight(), is(height));
 	}
