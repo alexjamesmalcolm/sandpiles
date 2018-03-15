@@ -48,8 +48,12 @@ public class Board {
 
 	public Collection<Tile> getAdjacentTiles(int x, int y) {
 		Collection<Tile> tiles = new ArrayList<Tile>();
-		tiles.add(getTile(0, 1));
-		tiles.add(getTile(1, 0));
+		tiles.add(getTile(x, y + 1));
+		tiles.add(getTile(x + 1, y));
+		if (x > 0) {
+			tiles.add(getTile(x - 1, y));
+			tiles.add(getTile(x, y - 1));
+		}
 		return tiles;
 	}
 
