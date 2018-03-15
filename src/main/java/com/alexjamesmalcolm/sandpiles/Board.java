@@ -64,7 +64,7 @@ public class Board {
 	}
 
 	public boolean needsToppling() {
-		return true;
+		return getTile(0, 0).isUnstable();
 	}
 
 }
