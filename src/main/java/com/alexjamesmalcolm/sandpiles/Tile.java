@@ -20,7 +20,7 @@ public class Tile {
 	}
 
 	public int getNumOfTopples() {
-		if(sand > 5) {
+		if(sand > 7) {
 			return 2;
 		}
 		return 1;
