@@ -64,7 +64,16 @@ public class Board {
 	}
 
 	public boolean needsToppling() {
-		return getTile(1, 1).isUnstable();
+		for (int x = 0; x < width; x++) {
+			List<Tile> column = board.get(x);
+			for(int y = 0; y < height; y++) {
+				Tile tile = column.get(y);
+				if(tile.isUnstable()) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 }
