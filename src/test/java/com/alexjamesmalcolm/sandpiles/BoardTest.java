@@ -164,4 +164,12 @@ public class BoardTest {
 		boolean actual = underTest.needsToppling();
 		assertThat(actual, is(true));
 	}
+	
+	@Test
+	public void shouldGetTilesXPositionAsZero() {
+		Board underTest = new Board(2, 2);
+		underTest.setTile(0, 0, tileOne);
+		int position = underTest.findXPosition(tileOne);
+		assertThat(position, is(0));
+	}
 }

@@ -76,4 +76,8 @@ public class Board {
 		return false;
 	}
 
+	public int findXPosition(Tile tile) {
+		return 0;
+	}
+
 }
