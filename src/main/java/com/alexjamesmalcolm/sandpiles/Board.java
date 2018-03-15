@@ -18,4 +18,11 @@ public class Board {
 		return height;
 	}
 
+	public Tile getTile(int i, int j) {
+		return new Tile(0);
+	}
+
+	public void generate(int i) {
+	}
+
 }
