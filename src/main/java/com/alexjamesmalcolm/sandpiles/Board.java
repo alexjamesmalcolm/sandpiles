@@ -98,8 +98,9 @@ public class Board {
 			if (tile.isUnstable()) {
 				int x = findXPosition(tile);
 				int y = findYPosition(tile);
+				int sandToAdd = tile.getNumOfTopples();
 				Collection<Tile> adjacentTiles = getAdjacentTiles(x, y);
-				adjacentTiles.forEach(adjacentTile -> adjacentTile.addSand(1));
+				adjacentTiles.forEach(adjacentTile -> adjacentTile.addSand(sandToAdd));
 				tile.topple();
 			}
 		});

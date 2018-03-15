@@ -220,4 +220,12 @@ public class BoardTest {
 		underTest.topple();
 		assertThat(underTest.getTile(0, 0).getSand(), is(1));
 	}
+	
+	@Test
+	public void shouldToppleBoardSoZeroZeroGetsZeroOnesTwoSands() {
+		Board underTest = new Board(2, 2);
+		underTest.setTile(0, 1, new Tile(8));
+		underTest.topple();
+		assertThat(underTest.getTile(0, 0).getSand(), is(2));
+	}
 }
