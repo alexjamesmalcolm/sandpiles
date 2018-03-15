@@ -56,4 +56,11 @@ public class TileTest {
 		Tile underTest = new Tile(12);
 		assertThat(underTest.getNumOfTopples(), is(3));
 	}
+	
+	@Test
+	public void shouldHaveToppleMakeSandZeroWhenSandIsFour() {
+		Tile underTest = new Tile(4);
+		underTest.topple();
+		assertThat(underTest.getSand(), is(0));
+	}
 }

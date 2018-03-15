@@ -23,4 +23,8 @@ public class Tile {
 		return getSand() / 4;
 	}
 
+	public void topple() {
+		sand = 0;
+	}
+
 }
