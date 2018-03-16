@@ -47,6 +47,9 @@ public class Tile {
 	public boolean equals(Object obj) {
 		if (!obj.getClass().equals(getClass()))
 			return false;
+		Tile tile = (Tile) obj;
+		if (tile.getSand() != getSand())
+			return false;
 		return true;
 	}
 

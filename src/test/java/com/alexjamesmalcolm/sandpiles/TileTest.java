@@ -91,4 +91,11 @@ public class TileTest {
 		String string = "";
 		assertThat(underTest.equals(string), is(false));
 	}
+	
+	@Test
+	public void shouldHaveTileWithDifferentSandNotEqual() {
+		Tile firstTile = new Tile(0);
+		Tile secondTile = new Tile(1);
+		assertThat(firstTile.equals(secondTile), is(false));
+	}
 }
