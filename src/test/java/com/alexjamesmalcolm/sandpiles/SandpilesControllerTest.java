@@ -38,6 +38,9 @@ public class SandpilesControllerTest {
 	@Mock
 	Tile tile;
 	
+	@Mock
+	Tile anotherTile;
+	
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
@@ -79,5 +82,14 @@ public class SandpilesControllerTest {
 	public void shouldSetTile() {
 		underTest.setTile(boardId, 1, 2, tile);
 		verify(board).setTile(1, 2, tile);
+	}
+	
+	@Test
+	public void shouldMakeBoardWithWidthTwoAndHeightThree() {
+		int width = 2;
+		int height = 3;
+//		boolean topple = true;
+		underTest.makeBoard(width, height);
+		verify(boardRepo).save(new Board(width, height));
 	}
 }
