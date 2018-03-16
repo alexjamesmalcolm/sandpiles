@@ -1,3 +1,3 @@
-# Alex Malcolm
+# Alex Malcolm &middot; [![Build Status](https://travis-ci.org/alexjamesmalcolm/sandpiles.svg?branch=master)](https://travis-ci.org/alexjamesmalcolm/sandpiles)
 
-This is a simulation of a video I saw on Numberphile about Zero Fractals
+This is an api that creates simulations of a math concept I saw on a Numberphile video about Zero Fractals.
