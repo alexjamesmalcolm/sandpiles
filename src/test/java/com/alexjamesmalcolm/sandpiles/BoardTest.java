@@ -293,4 +293,11 @@ public class BoardTest {
 		Board secondBoard = new Board(2, 2);
 		assertThat(firstBoard.equals(secondBoard), is(false));
 	}
+	
+	@Test
+	public void shouldMakeSureBoardDoesNotEqualIfDifferentHeights() {
+		Board firstBoard = new Board(2, 3);
+		Board secondBoard = new Board(2, 2);
+		assertThat(firstBoard.equals(secondBoard), is(false));
+	}
 }

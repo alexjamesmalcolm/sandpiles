@@ -157,6 +157,9 @@ public class Board {
 		if(board.getWidth() != getWidth()) {
 			return false;
 		}
+		if(board.getHeight() != getHeight()) {
+			return false;
+		}
 		return true;
 	}
 }
