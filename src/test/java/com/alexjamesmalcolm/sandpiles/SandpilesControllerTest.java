@@ -65,4 +65,10 @@ public class SandpilesControllerTest {
 		Collection<Board> actual = underTest.getBoards();
 		assertThat(actual, containsInAnyOrder(board, anotherBoard));
 	}
+	
+	@Test
+	public void shouldToppleBoard() {
+		underTest.toppleBoard(boardId);
+		verify(board).topple();
+	}
 }

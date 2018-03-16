@@ -21,4 +21,9 @@ public class SandpilesController {
 		return (Collection<Board>) boardRepo.findAll();
 	}
 
+	public void toppleBoard(long boardId) {
+		Board board = boardRepo.findOne(boardId);
+		board.topple();
+	}
+
 }
