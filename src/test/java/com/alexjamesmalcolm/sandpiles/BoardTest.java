@@ -279,4 +279,11 @@ public class BoardTest {
 		Board secondBoard = new Board(2, 2);
 		assertThat(firstBoard.equals(secondBoard), is(true));
 	}
+	
+	@Test
+	public void shouldMakeSureBoardDoesNotEqualString() {
+		Board firstBoard = new Board(2, 2);
+		String string = "";
+		assertThat(firstBoard.equals(string), is(false));
+	}
 }

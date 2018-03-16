@@ -150,6 +150,9 @@ public class Board {
 
 	@Override
 	public boolean equals(Object obj) {
+		if(!obj.getClass().equals(this.getClass())) {
+			return false;
+		}
 		return true;
 	}
 }
