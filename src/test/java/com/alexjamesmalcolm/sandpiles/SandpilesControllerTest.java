@@ -89,7 +89,7 @@ public class SandpilesControllerTest {
 		int width = 2;
 		int height = 3;
 //		boolean topple = true;
-		underTest.makeBoard(width, height, 0);
+		underTest.makeBoard(width, height, 0, false);
 		verify(boardRepo).save(new Board(width, height));
 	}
 	
@@ -100,7 +100,20 @@ public class SandpilesControllerTest {
 		Board board = new Board(width, height);
 		int sand = 2;
 		board.generate(sand);
-		underTest.makeBoard(width, height, sand);
+		underTest.makeBoard(width, height, sand, false);
+		verify(boardRepo).save(board);
+	}
+	
+	@Test
+	public void shouldMakeBoardThatComesToppled() {
+		int width = 2;
+		int height = 2;
+		boolean topple = true;
+		int sand = 10;
+		Board board = new Board(width, height);
+		board.generate(sand);
+		board.topple();
+		underTest.makeBoard(width, height, sand, topple);
 		verify(boardRepo).save(board);
 	}
 }

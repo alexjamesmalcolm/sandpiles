@@ -5,15 +5,15 @@ import java.util.Collection;
 import javax.annotation.Resource;
 
 public class SandpilesController {
-	
+
 	@Resource
 	private BoardRepository boardRepo;
-	
+
 	public Board getBoard(long id) {
 		return boardRepo.findOne(id);
 	}
 
-	public void deleteBoard(long id) {	
+	public void deleteBoard(long id) {
 		boardRepo.delete(id);
 	}
 
@@ -31,9 +31,10 @@ public class SandpilesController {
 		board.setTile(x, y, tile);
 	}
 
-	public void makeBoard(int width, int height, int sand) {
+	public void makeBoard(int width, int height, int sand, boolean topple) {
 		Board board = new Board(width, height);
 		board.generate(sand);
+		board.topple();
 		boardRepo.save(board);
 	}
 
