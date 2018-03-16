@@ -31,8 +31,9 @@ public class SandpilesController {
 		board.setTile(x, y, tile);
 	}
 
-	public void makeBoard(int width, int height) {
+	public void makeBoard(int width, int height, int sand) {
 		Board board = new Board(width, height);
+		board.generate(sand);
 		boardRepo.save(board);
 	}
 

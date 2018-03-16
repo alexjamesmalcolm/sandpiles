@@ -89,7 +89,18 @@ public class SandpilesControllerTest {
 		int width = 2;
 		int height = 3;
 //		boolean topple = true;
-		underTest.makeBoard(width, height);
+		underTest.makeBoard(width, height, 0);
 		verify(boardRepo).save(new Board(width, height));
+	}
+	
+	@Test
+	public void shouldMakeBoardThatComesWithTwoSandOnEachTile() {
+		int width = 2;
+		int height = 2;
+		Board board = new Board(width, height);
+		int sand = 2;
+		board.generate(sand);
+		underTest.makeBoard(width, height, sand);
+		verify(boardRepo).save(board);
 	}
 }
