@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Board {
 
@@ -89,7 +91,7 @@ public class Board {
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
 				Tile check = getTile(x, y);
-				if (tile.equals(check)) {
+				if (tile.hashCode() == check.hashCode()) {
 					return x;
 				}
 			}
@@ -101,7 +103,7 @@ public class Board {
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
 				Tile check = getTile(x, y);
-				if (tile.equals(check)) {
+				if (tile.hashCode() == check.hashCode()) {
 					return y;
 				}
 			}
@@ -137,6 +139,7 @@ public class Board {
 		return result;
 	}
 
+	@JsonIgnore
 	public Collection<Tile> getUnstableTiles() {
 		Collection<Tile> tiles = getTiles();
 		tiles.removeIf(tile -> !tile.isUnstable());

@@ -5,6 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 @Entity
 public class Tile {
 
@@ -25,10 +28,12 @@ public class Tile {
 		this.column = column;
 	}
 
+	@JsonValue
 	public int getSand() {
 		return sand;
 	}
 
+	@JsonIgnore
 	public boolean isUnstable() {
 		if (sand < 4) {
 			return false;
@@ -36,6 +41,7 @@ public class Tile {
 		return true;
 	}
 
+	@JsonIgnore
 	public int getNumOfTopples() {
 		return getSand() / 4;
 	}
