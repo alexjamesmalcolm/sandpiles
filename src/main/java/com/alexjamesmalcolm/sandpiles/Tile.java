@@ -7,11 +7,11 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Tile {
-	
+
 	@Id
 	@GeneratedValue
 	long id;
-	
+
 	@ManyToOne
 	Column column;
 
@@ -26,7 +26,7 @@ public class Tile {
 	}
 
 	public boolean isUnstable() {
-		if(sand < 4) {
+		if (sand < 4) {
 			return false;
 		}
 		return true;
@@ -43,8 +43,10 @@ public class Tile {
 	public void addSand(int sand) {
 		this.sand += sand;
 	}
-	
+
 	public boolean equals(Object obj) {
+		if (!obj.getClass().equals(getClass()))
+			return false;
 		return true;
 	}
 

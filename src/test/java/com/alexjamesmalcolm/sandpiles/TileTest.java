@@ -84,4 +84,11 @@ public class TileTest {
 		Tile secondTile = new Tile(0);
 		assertThat(firstTile.equals(secondTile), is(true));
 	}
+	
+	@Test
+	public void shouldHaveTileNotEqualString() {
+		Tile underTest = new Tile(0);
+		String string = "";
+		assertThat(underTest.equals(string), is(false));
+	}
 }
