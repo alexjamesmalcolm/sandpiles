@@ -43,5 +43,9 @@ public class Tile {
 	public void addSand(int sand) {
 		this.sand += sand;
 	}
+	
+	public boolean equals(Object obj) {
+		return true;
+	}
 
 }

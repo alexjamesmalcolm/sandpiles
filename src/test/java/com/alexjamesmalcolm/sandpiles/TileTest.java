@@ -77,4 +77,11 @@ public class TileTest {
 		underTest.addSand(1);
 		assertThat(underTest.getSand(), is(3));
 	}
+	
+	@Test
+	public void shouldHaveTwoTilesEqualEachOther() {
+		Tile firstTile = new Tile(0);
+		Tile secondTile = new Tile(0);
+		assertThat(firstTile.equals(secondTile), is(true));
+	}
 }
