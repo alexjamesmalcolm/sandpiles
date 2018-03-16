@@ -272,4 +272,11 @@ public class BoardTest {
 		Board underTest = new Board(id);
 		assertThat(underTest.getId(), is(id));
 	}
+	
+	@Test
+	public void shouldMakeSureBoardsAreEqual() {
+		Board firstBoard = new Board(2, 2);
+		Board secondBoard = new Board(2, 2);
+		assertThat(firstBoard.equals(secondBoard), is(true));
+	}
 }
