@@ -31,13 +31,14 @@ public class SandpilesController {
 		board.setTile(x, y, tile);
 	}
 
-	public void makeBoard(int width, int height, int sand, boolean topple) {
+	public Board makeBoard(int width, int height, int sand, boolean topple) {
 		Board board = new Board(width, height);
 		board.generate(sand);
 		if (topple) {
 			board.topple();
 		}
 		boardRepo.save(board);
+		return board;
 	}
 
 }
