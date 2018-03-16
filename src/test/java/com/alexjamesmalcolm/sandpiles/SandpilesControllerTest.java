@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 public class SandpilesControllerTest {
@@ -38,5 +39,13 @@ public class SandpilesControllerTest {
 		
 		Board actual = underTest.getBoard(boardId);
 		assertThat(actual, is(board));
+	}
+	
+	@Test
+	public void shouldDeleteBoard() {
+		long boardId = 1L;
+		when(board.getId()).thenReturn(boardId);
+		underTest.deleteBoard(boardId);
+		Mockito.verify(boardRepo).delete(boardId);
 	}
 }

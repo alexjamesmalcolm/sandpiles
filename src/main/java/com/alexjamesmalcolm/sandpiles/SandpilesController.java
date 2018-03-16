@@ -11,4 +11,8 @@ public class SandpilesController {
 		return boardRepo.findOne(boardId);
 	}
 
+	public void deleteBoard(long boardId) {	
+		boardRepo.delete(boardId);
+	}
+
 }
