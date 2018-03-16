@@ -35,6 +35,9 @@ public class SandpilesControllerTest {
 	@Mock
 	BoardRepository boardRepo;
 	
+	@Mock
+	Tile tile;
+	
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
@@ -70,5 +73,11 @@ public class SandpilesControllerTest {
 	public void shouldToppleBoard() {
 		underTest.toppleBoard(boardId);
 		verify(board).topple();
+	}
+	
+	@Test
+	public void shouldSetTile() {
+		underTest.setTile(boardId, 1, 2, tile);
+		verify(board).setTile(1, 2, tile);
 	}
 }

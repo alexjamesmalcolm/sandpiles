@@ -9,21 +9,26 @@ public class SandpilesController {
 	@Resource
 	private BoardRepository boardRepo;
 	
-	public Board getBoard(long boardId) {
-		return boardRepo.findOne(boardId);
+	public Board getBoard(long id) {
+		return boardRepo.findOne(id);
 	}
 
-	public void deleteBoard(long boardId) {	
-		boardRepo.delete(boardId);
+	public void deleteBoard(long id) {	
+		boardRepo.delete(id);
 	}
 
 	public Collection<Board> getBoards() {
 		return (Collection<Board>) boardRepo.findAll();
 	}
 
-	public void toppleBoard(long boardId) {
-		Board board = boardRepo.findOne(boardId);
+	public void toppleBoard(long id) {
+		Board board = boardRepo.findOne(id);
 		board.topple();
+	}
+
+	public void setTile(long id, int x, int y, Tile tile) {
+		Board board = boardRepo.findOne(id);
+		board.setTile(x, y, tile);
 	}
 
 }
