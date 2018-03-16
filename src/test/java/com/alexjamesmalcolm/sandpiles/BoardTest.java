@@ -300,4 +300,12 @@ public class BoardTest {
 		Board secondBoard = new Board(2, 2);
 		assertThat(firstBoard.equals(secondBoard), is(false));
 	}
+	
+	@Test
+	public void shouldMakeSureBoardDoesNotEqualIfContainsDifferentTile() {
+		Board firstBoard = new Board(2, 2);
+		Board secondBoard = new Board(2, 2);
+		firstBoard.setTile(0, 0, new Tile(2));
+		assertThat(firstBoard.equals(secondBoard), is(false));
+	}
 }

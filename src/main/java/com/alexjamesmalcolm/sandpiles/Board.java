@@ -150,15 +150,24 @@ public class Board {
 
 	@Override
 	public boolean equals(Object obj) {
-		if(!obj.getClass().equals(this.getClass())) {
+		if (!obj.getClass().equals(this.getClass())) {
 			return false;
 		}
 		Board board = (Board) obj;
-		if(board.getWidth() != getWidth()) {
+		if (board.getWidth() != getWidth()) {
 			return false;
 		}
-		if(board.getHeight() != getHeight()) {
+		if (board.getHeight() != getHeight()) {
 			return false;
+		}
+		List<Tile> otherTiles = (List<Tile>) board.getTiles();
+		List<Tile> tiles = (List<Tile>) getTiles();
+		for (int i = 0; i < tiles.size(); i++) {
+			Tile otherTile = otherTiles.get(i);
+			Tile tile = tiles.get(i);
+			if(tile.getSand() != otherTile.getSand()) {
+				return false;
+			}
 		}
 		return true;
 	}
