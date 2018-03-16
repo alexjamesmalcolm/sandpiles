@@ -142,4 +142,15 @@ public class SandpilesControllerTest {
 		Board actual = underTest.setTile(id, 0, 0, tile);
 		assertThat(actual, is(board));
 	}
+	
+	@Test
+	public void shouldHaveToppleBoardReturnTheBoard() {
+		Board board = new Board(2, 2);
+		board.generate(10);
+		long id = underTest.makeBoard(2, 2, 10, false).getId();
+		when(boardRepo.findOne(id)).thenReturn(board);
+		board.topple();
+		Board actual = underTest.toppleBoard(id);
+		assertThat(actual, is(board));
+	}
 }
