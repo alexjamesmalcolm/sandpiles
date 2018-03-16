@@ -140,5 +140,6 @@ public class SandpilesControllerTest {
 		long id = underTest.makeBoard(2, 2, 0, false).getId();
 		when(boardRepo.findOne(id)).thenReturn(new Board(2, 2));
 		Board actual = underTest.setTile(id, 0, 0, tile);
+		assertThat(actual, is(board));
 	}
 }
