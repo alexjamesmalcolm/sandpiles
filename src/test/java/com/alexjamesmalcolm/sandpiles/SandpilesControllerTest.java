@@ -1,14 +1,18 @@
 package com.alexjamesmalcolm.sandpiles;
 
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 public class SandpilesControllerTest {
@@ -22,6 +26,11 @@ public class SandpilesControllerTest {
 	
 	@Mock
 	Board board;
+	long boardId;
+	
+	@Mock
+	Board anotherBoard;
+	long anotherBoardId;
 	
 	@Mock
 	BoardRepository boardRepo;
@@ -29,23 +38,31 @@ public class SandpilesControllerTest {
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
+		boardId = 1L;
+		when(board.getId()).thenReturn(boardId);
+		when(boardRepo.findOne(boardId)).thenReturn(board);
+		Collection<Board> boards = new ArrayList<>();
+		boards.add(board);
+		boards.add(anotherBoard);
+		when(boardRepo.findAll()).thenReturn(boards);
+		
 	}
 	
 	@Test
 	public void shouldGetBoard() {
-		long boardId = 1L;
-		when(board.getId()).thenReturn(boardId);
-		when(boardRepo.findOne(boardId)).thenReturn(board);
-		
 		Board actual = underTest.getBoard(boardId);
 		assertThat(actual, is(board));
 	}
 	
 	@Test
 	public void shouldDeleteBoard() {
-		long boardId = 1L;
-		when(board.getId()).thenReturn(boardId);
 		underTest.deleteBoard(boardId);
-		Mockito.verify(boardRepo).delete(boardId);
+		verify(boardRepo).delete(boardId);
+	}
+	
+	@Test
+	public void shouldGetBoards() {
+		Collection<Board> actual = underTest.getBoards();
+		assertThat(actual, containsInAnyOrder(board, anotherBoard));
 	}
 }

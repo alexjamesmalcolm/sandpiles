@@ -1,5 +1,7 @@
 package com.alexjamesmalcolm.sandpiles;
 
+import java.util.Collection;
+
 import javax.annotation.Resource;
 
 public class SandpilesController {
@@ -13,6 +15,10 @@ public class SandpilesController {
 
 	public void deleteBoard(long boardId) {	
 		boardRepo.delete(boardId);
+	}
+
+	public Collection<Board> getBoards() {
+		return (Collection<Board>) boardRepo.findAll();
 	}
 
 }
