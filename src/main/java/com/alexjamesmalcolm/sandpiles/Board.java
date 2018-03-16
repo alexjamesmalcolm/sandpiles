@@ -153,6 +153,10 @@ public class Board {
 		if(!obj.getClass().equals(this.getClass())) {
 			return false;
 		}
+		Board board = (Board) obj;
+		if(board.getWidth() != getWidth()) {
+			return false;
+		}
 		return true;
 	}
 }

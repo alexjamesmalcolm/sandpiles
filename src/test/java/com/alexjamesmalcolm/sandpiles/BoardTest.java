@@ -286,4 +286,11 @@ public class BoardTest {
 		String string = "";
 		assertThat(firstBoard.equals(string), is(false));
 	}
+	
+	@Test
+	public void shouldMakeSureBoardDoesNotEqualIfDifferentWidths() {
+		Board firstBoard = new Board(3, 2);
+		Board secondBoard = new Board(2, 2);
+		assertThat(firstBoard.equals(secondBoard), is(false));
+	}
 }
