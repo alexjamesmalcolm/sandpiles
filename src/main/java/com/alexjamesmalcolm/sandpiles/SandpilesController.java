@@ -34,7 +34,9 @@ public class SandpilesController {
 	public void makeBoard(int width, int height, int sand, boolean topple) {
 		Board board = new Board(width, height);
 		board.generate(sand);
-		board.topple();
+		if (topple) {
+			board.topple();
+		}
 		boardRepo.save(board);
 	}
 

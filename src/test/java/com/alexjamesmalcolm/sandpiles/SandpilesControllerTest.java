@@ -116,4 +116,12 @@ public class SandpilesControllerTest {
 		underTest.makeBoard(width, height, sand, topple);
 		verify(boardRepo).save(board);
 	}
+	
+	@Test
+	public void shouldMakeBoardThatComesWantingToToppleButWasnt() {
+		Board board = new Board(2, 2);
+		board.generate(10);
+		underTest.makeBoard(2, 2, 10, false);
+		verify(boardRepo).save(board);
+	}
 }
