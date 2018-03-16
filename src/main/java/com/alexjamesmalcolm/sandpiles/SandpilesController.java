@@ -26,9 +26,10 @@ public class SandpilesController {
 		board.topple();
 	}
 
-	public void setTile(long id, int x, int y, Tile tile) {
+	public Board setTile(long id, int x, int y, Tile tile) {
 		Board board = boardRepo.findOne(id);
 		board.setTile(x, y, tile);
+		return board;
 	}
 
 	public Board makeBoard(int width, int height, int sand, boolean topple) {
