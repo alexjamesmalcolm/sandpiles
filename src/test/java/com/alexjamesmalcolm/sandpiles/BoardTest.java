@@ -154,7 +154,7 @@ public class BoardTest {
 	@Test
 	public void shouldRequireTopplingOnOneOne() {
 		Board underTest = new Board(2,2);
-		underTest.setTile(1, 1, new Tile(4));
+		underTest.setTile(1, 1, new Tile(4, null));
 		boolean actual = underTest.needsToppling();
 		assertThat(actual, is(true));
 	}
@@ -162,7 +162,7 @@ public class BoardTest {
 	@Test
 	public void shouldRequireTopplingOnZeroZero() {
 		Board underTest = new Board(2,2);
-		underTest.setTile(0, 0, new Tile(4));
+		underTest.setTile(0, 0, new Tile(4, null));
 		boolean actual = underTest.needsToppling();
 		assertThat(actual, is(true));
 	}
@@ -202,7 +202,7 @@ public class BoardTest {
 	@Test
 	public void shouldToppleBoardSoZeroZeroHasNoSand() {
 		Board underTest = new Board(2, 2);
-		underTest.setTile(0, 0, new Tile(4));
+		underTest.setTile(0, 0, new Tile(4, null));
 		underTest.topple();
 		assertThat(underTest.getTile(0, 0).getSand(), is(0));
 	}
@@ -210,7 +210,7 @@ public class BoardTest {
 	@Test
 	public void shouldToppleBoardSoOneOneHasNoSand() {
 		Board underTest = new Board(2, 2);
-		underTest.setTile(1, 1, new Tile(4));
+		underTest.setTile(1, 1, new Tile(4, null));
 		underTest.topple();
 		assertThat(underTest.getTile(1, 1).getSand(), is(0));
 	}
@@ -218,7 +218,7 @@ public class BoardTest {
 	@Test
 	public void shouldToppleBoardSoZeroZeroGetsZeroOnesSand() {
 		Board underTest = new Board(2, 2);
-		underTest.setTile(0, 1, new Tile(4));
+		underTest.setTile(0, 1, new Tile(4, null));
 		underTest.topple();
 		assertThat(underTest.getTile(0, 0).getSand(), is(1));
 	}
@@ -226,7 +226,7 @@ public class BoardTest {
 	@Test
 	public void shouldToppleBoardSoZeroZeroGetsZeroOnesTwoSands() {
 		Board underTest = new Board(2, 2);
-		underTest.setTile(0, 1, new Tile(8));
+		underTest.setTile(0, 1, new Tile(8, null));
 		underTest.topple();
 		assertThat(underTest.getTile(0, 0).getSand(), is(2));
 	}
@@ -242,7 +242,7 @@ public class BoardTest {
 	@Test
 	public void shouldReturnOneTileThatNeedsToppling() {
 		Board underTest = new Board(2,2);
-		Tile tile = new Tile(4);
+		Tile tile = new Tile(4, null);
 		underTest.setTile(0, 0, tile);
 		Collection<Tile> tiles = underTest.getUnstableTiles();
 		assertThat(tiles, contains(tile));
@@ -305,7 +305,7 @@ public class BoardTest {
 	public void shouldMakeSureBoardDoesNotEqualIfContainsDifferentTile() {
 		Board firstBoard = new Board(2, 2);
 		Board secondBoard = new Board(2, 2);
-		firstBoard.setTile(0, 0, new Tile(2));
+		firstBoard.setTile(0, 0, new Tile(2, null));
 		assertThat(firstBoard.equals(secondBoard), is(false));
 	}
 }

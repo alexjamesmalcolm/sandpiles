@@ -17,8 +17,12 @@ public class Tile {
 
 	private int sand;
 
-	public Tile(int sand) {
+	@SuppressWarnings("unused")
+	private Tile() {}
+	
+	public Tile(int sand, Column column) {
 		this.sand = sand;
+		this.column = column;
 	}
 
 	public int getSand() {

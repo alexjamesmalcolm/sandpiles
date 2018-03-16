@@ -1,5 +1,7 @@
 package com.alexjamesmalcolm.sandpiles;
 
+import static javax.persistence.CascadeType.ALL;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,15 +19,19 @@ public class Column {
 	private long id;
 	@ManyToOne
 	Board board;
-	@OneToMany(mappedBy = "column")
+	@OneToMany(cascade = ALL, orphanRemoval = true, mappedBy = "column")
 	List<Tile> tiles;
 	private int height;
 
-	public Column(int height) {
+	@SuppressWarnings("unused")
+	private Column() {}
+	
+	public Column(int height, int sand, Board board) {
 		this.height = height;
+		this.board = board;
 		tiles = new ArrayList<>(height);
-		for(int i = 0; i < height; i++) {
-			tiles.add(null);
+		for (int i = 0; i < height; i++) {
+			tiles.add(new Tile(sand, this));
 		}
 	}
 

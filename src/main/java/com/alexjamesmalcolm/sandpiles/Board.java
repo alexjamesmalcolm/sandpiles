@@ -1,5 +1,7 @@
 package com.alexjamesmalcolm.sandpiles;
 
+import static javax.persistence.CascadeType.ALL;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -14,7 +16,7 @@ public class Board {
 
 	private int width;
 	private int height;
-	@OneToMany(mappedBy = "board")
+	@OneToMany(cascade = ALL, orphanRemoval = true, mappedBy = "board")
 	private List<Column> columns;
 	@Id
 	@GeneratedValue
@@ -51,10 +53,7 @@ public class Board {
 	public void generate(int sand) {
 		columns = new ArrayList<>();
 		for (int x = 0; x < width; x++) {
-			Column column = new Column(height);
-			for (int y = 0; y < height; y++) {
-				column.setTile(y, new Tile(sand));
-			}
+			Column column = new Column(height, sand, this);
 			columns.add(x, column);
 		}
 	}
@@ -165,7 +164,7 @@ public class Board {
 		for (int i = 0; i < tiles.size(); i++) {
 			Tile otherTile = otherTiles.get(i);
 			Tile tile = tiles.get(i);
-			if(tile.getSand() != otherTile.getSand()) {
+			if (tile.getSand() != otherTile.getSand()) {
 				return false;
 			}
 		}

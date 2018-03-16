@@ -24,7 +24,7 @@ public class ColumnTest {
 	@Test
 	public void shouldGetTile() {
 		int height = 1;
-		Column underTest = new Column(height);
+		Column underTest = new Column(height, 0, null);
 		int position = 0;
 		underTest.setTile(position, tileOne);
 		assertThat(underTest.getTile(position), is(tileOne));
@@ -33,20 +33,20 @@ public class ColumnTest {
 	@Test
 	public void shouldGetHeightOne() {
 		int height = 1;
-		Column underTest = new Column(height);
+		Column underTest = new Column(height, 0, null);
 		assertThat(underTest.getHeight(), is(height));
 	}
 	
 	@Test
 	public void shouldGetHeightTwo() {
 		int height = 2;
-		Column underTest = new Column(height);
+		Column underTest = new Column(height, 0, null);
 		assertThat(underTest.getHeight(), is(height));
 	}
 	
 	@Test
 	public void shouldGetFirstTile() {
-		Column underTest = new Column(2);
+		Column underTest = new Column(2, 0, null);
 		underTest.setTile(0, tileOne);
 		underTest.setTile(1, tileTwo);
 		assertThat(underTest.getTile(0), is(tileOne));
