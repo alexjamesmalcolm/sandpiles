@@ -80,8 +80,8 @@ public class SandpilesControllerTest {
 
 	@Test
 	public void shouldSetTile() {
-		underTest.setTile(boardId, 1, 2, tile);
-		verify(board).setTile(1, 2, tile);
+		underTest.setTile(boardId, 1, 2, 1);
+		verify(board).setTile(1, 2, new Tile(1));
 	}
 
 	@Test
@@ -135,11 +135,11 @@ public class SandpilesControllerTest {
 	@Test
 	public void shouldHaveSetTileReturnTheBoard() {
 		Board board = new Board(2, 2);
-		Tile tile = new Tile(1);
-		board.setTile(0, 0, tile);
+		int sand = 1;
+		board.setTile(0, 0, new Tile(sand));
 		long id = underTest.makeBoard(2, 2, 0, false).getId();
 		when(boardRepo.findOne(id)).thenReturn(new Board(2, 2));
-		Board actual = underTest.setTile(id, 0, 0, tile);
+		Board actual = underTest.setTile(id, 0, 0, sand);
 		assertThat(actual, is(board));
 	}
 	
