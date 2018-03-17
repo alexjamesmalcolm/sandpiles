@@ -315,9 +315,9 @@ public class BoardTest {
 		underTest.generate(4);
 		underTest.topple();
 
-		underTest.getTiles().forEach(tile -> {
-			System.out.println(tile.getSand());
-		});
+//		underTest.getTiles().forEach(tile -> {
+//			System.out.println(tile.getSand());
+//		});
 
 		assertThat(underTest.getTile(0, 0).getSand(), is(0));
 		assertThat(underTest.getTile(1, 0).getSand(), is(3));
@@ -328,5 +328,35 @@ public class BoardTest {
 		assertThat(underTest.getTile(0, 2).getSand(), is(0));
 		assertThat(underTest.getTile(1, 2).getSand(), is(3));
 		assertThat(underTest.getTile(2, 2).getSand(), is(0));
+	}
+	
+	@Test
+	public void shouldProperlyToppleAllFives() {
+		Board underTest = new Board(2, 2);
+		underTest.generate(5);
+		underTest.topple();
+		Board actual = new Board(2, 2);
+		actual.generate(3);
+		assertThat(underTest.equals(actual), is(true));
+	}
+	
+	@Test
+	public void shouldProperlyToppleAllSixes() {
+		Board underTest = new Board(2, 2);
+		underTest.generate(6);
+		underTest.topple();
+		Board check = new Board(2, 2);
+		check.generate(2);
+		assertThat(underTest.equals(check), is(true));
+	}
+	
+	@Test
+	public void shouldProperlyToppleAllTwenties() {
+		Board underTest = new Board(2, 2);
+		underTest.generate(20);
+		underTest.topple();
+		Board check = new Board(2, 2);
+		check.generate(2);
+		assertThat(underTest.equals(check), is(true));
 	}
 }
