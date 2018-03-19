@@ -63,4 +63,7 @@ public class Tile {
 		return true;
 	}
 
+	public void setSand(int sand) {
+	}
+
 }

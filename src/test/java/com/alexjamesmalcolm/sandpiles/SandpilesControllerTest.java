@@ -136,7 +136,7 @@ public class SandpilesControllerTest {
 	public void shouldHaveSetTileReturnTheBoard() {
 		Board board = new Board(2, 2);
 		int sand = 1;
-		board.setTile(0, 0, new Tile(sand, null));
+		board.setTile(0, 0, sand);
 		long id = underTest.makeBoard(2, 2, 0, false).getId();
 		when(boardRepo.findOne(id)).thenReturn(new Board(2, 2));
 		Board actual = underTest.setTile(id, 0, 0, sand);

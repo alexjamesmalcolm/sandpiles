@@ -60,9 +60,10 @@ public class Board {
 		}
 	}
 
-	public void setTile(int x, int y, Tile tile) {
+	public void setTile(int x, int y, int sand) {
 		Column column = columns.get(x);
-		column.setTile(y, tile);
+		Tile tile = column.getTile(y);
+		tile.setSand(sand);
 	}
 
 	public Collection<Tile> getAdjacentTiles(int x, int y) {
@@ -126,6 +127,7 @@ public class Board {
 		if (needsToppling()) {
 			topple();
 		}
+//		System.out.println(tiles.size());
 	}
 
 	public Collection<Tile> getTiles() {

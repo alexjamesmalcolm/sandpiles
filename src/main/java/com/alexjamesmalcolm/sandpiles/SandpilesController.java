@@ -46,7 +46,7 @@ public class SandpilesController {
 	@RequestMapping(value = "/boards/{id}", method = PATCH)
 	public Board setTile(@PathVariable long id, @RequestParam int x, @RequestParam int y, @RequestParam int sand) {
 		Board board = boardRepo.findOne(id);
-		board.setTile(x, y, new Tile(sand, null));
+		board.setTile(x, y, sand);
 		return board;
 	}
 
