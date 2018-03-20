@@ -81,7 +81,7 @@ public class SandpilesControllerTest {
 	@Test
 	public void shouldSetTile() {
 		underTest.setTile(boardId, 1, 2, 1);
-		verify(board).setTile(1, 2, new Tile(1, null));
+		verify(board).setTile(1, 2, 1);
 	}
 
 	@Test
